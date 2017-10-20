@@ -77,6 +77,12 @@ img {
   height: 25px;
 }
 
-span {
+button.action {
   color: #333;
+  background: none;
+  padding: 0;
+}
+
+button.action:focus {
+  outline: none;
 }

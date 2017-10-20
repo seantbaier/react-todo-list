@@ -5,13 +5,16 @@ const ListItem = props => {
   return (
     <li>
       {props.item}
-      <span>x</span>
+      <button className="action" onClick={props.handleRemove}>
+        x
+      </button>
     </li>
   );
 };
 
 ListItem.propTypes = {
-  item: PropTypes.string.isRequired
+  item: PropTypes.string.isRequired,
+  handleRemove: PropTypes.func.isRequired
 };
 
 export default ListItem;
