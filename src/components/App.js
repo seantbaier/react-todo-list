@@ -8,40 +8,32 @@ import InputForm from "./InputForm";
 import Header from "./Header";
 
 class App extends Component {
-  constructor() {
-    super();
-
-    this.newItemSubmitHandler = this.newItemSubmitHandler.bind(this);
-    this.handleItemInput = this.handleItemInput.bind(this);
-    this.removeItemAt = this.removeItemAt.bind(this);
-
-    // getInitialState
-    this.state = {
-      list: [
-        {
-          name: "Inventive Acaedmy Logo Design",
-          id: 0,
-          isEditing: false
-        },
-        {
-          name: "Daily Standup",
-          id: 1,
-          isEditing: false
-        },
-        {
-          name: "Reschedule lunch meeting",
-          id: 2,
-          isEditing: false
-        },
-        {
-          name: "Read emails",
-          id: 3,
-          isEditing: false
-        }
-      ],
-      pendingItem: ""
-    };
-  }
+  // getInitialState
+  state = {
+    list: [
+      {
+        name: "Inventive Acaedmy Logo Design",
+        id: 0,
+        isEditing: false
+      },
+      {
+        name: "Daily Standup",
+        id: 1,
+        isEditing: false
+      },
+      {
+        name: "Reschedule lunch meeting",
+        id: 2,
+        isEditing: false
+      },
+      {
+        name: "Read emails",
+        id: 3,
+        isEditing: false
+      }
+    ],
+    pendingItem: ""
+  };
 
   lastItemId = 3;
 
