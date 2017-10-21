@@ -19,17 +19,24 @@ class App extends Component {
     this.state = {
       list: [
         {
-          item: "Inventive Acaedmy Logo Design",
-          id: 0
+          name: "Inventive Acaedmy Logo Design",
+          id: 0,
+          isEditing: false
         },
         {
-          item: "Daily Standup",
-          id: 1
+          name: "Daily Standup",
+          id: 1,
+          isEditing: false
         },
-        { item: "Reschedule lunch meeting", id: 2 },
         {
-          item: "Read emails",
-          id: 3
+          name: "Reschedule lunch meeting",
+          id: 2,
+          isEditing: false
+        },
+        {
+          name: "Read emails",
+          id: 3,
+          isEditing: false
         }
       ],
       pendingItem: ""
@@ -44,11 +51,42 @@ class App extends Component {
     return id;
   };
 
+  // Flips isEditing bool
+  toggleIsEditingAt = id => {
+    console.log("isEditingAt", id);
+    this.setState({
+      list: this.state.list.map(item => {
+        if (id === item.id) {
+          return {
+            ...item,
+            isEditing: !item["isEditing"]
+          };
+        }
+        return item;
+      })
+    });
+  };
+
   removeItemAt = id => {
     this.setState({ list: this.state.list.filter(guest => id !== guest.id) });
   };
 
   handleItemInput = e => this.setState({ pendingItem: e.target.value });
+
+  // handle editing items
+  setNameAt = (name, id) => {
+    this.setState({
+      list: this.state.list.map(item => {
+        if (id === item.id) {
+          return {
+            ...item,
+            name
+          };
+        }
+        return item;
+      })
+    });
+  };
 
   newItemSubmitHandler = e => {
     e.preventDefault();
@@ -56,7 +94,8 @@ class App extends Component {
     this.setState({
       list: [
         {
-          item: this.state.pendingItem,
+          name: this.state.pendingItem,
+          isEditing: false,
           id
         },
         ...this.state.list
@@ -75,7 +114,12 @@ class App extends Component {
           pendingItem={this.state.pendingItem}
         />
 
-        <List list={this.state.list} removeItemAt={this.removeItemAt} />
+        <List
+          list={this.state.list}
+          removeItemAt={this.removeItemAt}
+          toggleIsEditingAt={this.toggleIsEditingAt}
+          setNameAt={this.setNameAt}
+        />
       </div>
     );
   }
