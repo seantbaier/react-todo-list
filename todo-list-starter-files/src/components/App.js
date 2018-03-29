@@ -8,32 +8,36 @@ import InputForm from "./InputForm";
 import Header from "./Header";
 
 class App extends Component {
-  // getInitialState
-  state = {
-    list: [
-      {
-        name: "Inventive Acaedmy Logo Design",
-        id: 0,
-        isEditing: false
-      },
-      {
-        name: "Daily Standup",
-        id: 1,
-        isEditing: false
-      },
-      {
-        name: "Reschedule lunch meeting",
-        id: 2,
-        isEditing: false
-      },
-      {
-        name: "Read emails",
-        id: 3,
-        isEditing: false
-      }
-    ],
-    pendingItem: ""
-  };
+  constructor(props) {
+    super(props);
+
+    // getInitialState
+    this.state = {
+      list: [
+        {
+          name: "Inventive Acaedmy Logo Design",
+          id: 0,
+          isEditing: false
+        },
+        {
+          name: "Daily Standup",
+          id: 1,
+          isEditing: false
+        },
+        {
+          name: "Reschedule lunch meeting",
+          id: 2,
+          isEditing: false
+        },
+        {
+          name: "Read emails",
+          id: 3,
+          isEditing: false
+        }
+      ],
+      pendingItem: ""
+    };
+  }
 
   lastItemId = 3;
 
