@@ -10,12 +10,10 @@
 /build
 
 # misc
-.DS_Store
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-.vscode/
 *~
 *.pyc
 .grunt
@@ -33,7 +31,6 @@ chrome-user-data
 *.sublime-workspace
 .idea
 *.iml
-.vscode/
 *.swp
 *.swo
 *react*min*.js
