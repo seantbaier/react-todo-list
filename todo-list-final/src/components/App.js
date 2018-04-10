@@ -39,7 +39,7 @@ class App extends Component {
   };
 
   removeItemAt = id => {
-    this.setState({ list: this.state.list.filter(guest => id !== guest.id) });
+    this.setState({ list: this.state.list.filter(item => id !== item.id) });
   };
 
   handleItemInput = e => this.setState({ pendingItem: e.target.value });
